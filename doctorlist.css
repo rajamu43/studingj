@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+*{
+    margin-top:0;
+    padding: 0;
+    outline:0;
+}
+
+table{
+    position: absolute;
+    z-index:2;
+    left:65%;
+    top:75%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+    background:#fff;
+    text-align: center;
+}
+th,td{
+    padding:10px 15px;
+}
+th{
+    background: #49e643cd;
+    color:#fff;
+    text-transform: uppercase;
+}
+tr:nth-child(odd){
+    background-color: #eeeeee;
+}
+.btn{
+	background: #6ed36bcd;
+	border:none;
+	height:28px;
+	width:75px;
+	color:#fff;
+	text-transform: uppercase;
+	border-radius:10px;
+}
+  p{
+    
+    color:rgb(4, 140, 4);
+    background:#fff;
+    padding:20px;
+    width:100px;
+    margin-left:5px;
+    margin-top:5px;
+  }

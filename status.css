@@ -1,0 +1,59 @@
+@charset "ISO-8859-1";
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(68, 18, 232, 0.571);
+    background-image: url(/images/regnew5.jpg);
+    background-size:cover;
+    color:rgb(7, 248, 7);
+  }
+  
+
+  
+  .container {
+   margin-top: 100px;
+   margin-left:500px;
+    display: flex;
+    flex-direction: column;
+    width: 28vw;
+    background-color: rgba(68, 18, 232, 0.571);
+    border-radius:10px;
+  }
+  
+  h1 {
+    text-align: center;
+    color:#fff;
+  }
+  p {
+    text-align: center;
+    color:#fff;
+    color:rgb(7, 248, 7);
+  }
+  
+  /* desired spacing for input fields */
+ /* more styles added to beautify the input fields */
+input {
+    margin: 0.25em 0em 1em 0em;
+    outline: none;
+    padding: 0.5em;
+    border: none;
+    background-color: rgb(225, 225, 225);
+    border-radius: 0.25em;
+    color: black;
+  }
+/* styles for button */
+button {
+    padding: 0.75em;
+    border: none;
+    outline: none;
+    background-color: rgb(68, 18, 232);
+    color: white;
+    border-radius: 0.25em;
+  }
+  
+  /* hover functionality for button */
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(41, 4, 164);
+  }
+    
+  

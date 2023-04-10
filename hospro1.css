@@ -1,0 +1,351 @@
+@charset "ISO-8859-1";
+*{
+    padding:0;
+    margin:0;
+    font-family:arial;
+}
+.container{
+    width:100%;
+    height:100%;
+    background:url(/images/back.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+
+}
+h1{
+    color:#c8f54a;
+}
+.container1{
+    width:1200px;
+    height:80px;
+    margin:auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    position: relative;
+    
+}
+.container1 ul{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+
+}
+.container1 ul li{
+    color:#51e65a;
+    margin-right: 50px;
+    font-weight: bold;
+    cursor:pointer;
+    font-size: 14px;
+    transition: .5s;
+}
+.container1 ul li:hover{
+    color:#4d72d0;
+}
+h3{
+    text-align: left;
+    
+}
+.container1 .btn{
+    width:140px;
+    height: 45px;
+    color:#4d72d0;
+    border-radius: 25px;
+    background: transparent;
+    cursor: pointer;
+    border:2px solid #4d72d0;
+    font-weight: bold;
+    transition: .5%;
+}
+.container1 .btn:hover{
+    background: #4d72d0;
+    color:#fff;
+}
+.content{
+    width:1200px;
+    height:100%;
+    
+    margin:auto;
+    display:flex;
+    padding-left: 100px;
+}
+h4{
+    padding-top: 150px;
+    color:#8f9192;
+}
+p{
+    color:white;
+    line-height:20px;
+    letter-spacing:1px;
+    padding-top:20px;
+
+}
+.img img{
+    margin-left: 50px;
+}
+/* .mySlides {
+    display: none;
+  } */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  a{
+   float: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+     color:#51e65a;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  .main{
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.about-text h1{
+  color:green;
+  font-size: 80px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.about-text h5{
+  color:black;
+  font-size: 25px;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+.about-text p{
+  color: gray;
+  letter-spacing: 1px;
+  line-height: 28px;
+  font-size: 18px;
+  margin-bottom: 45px;
+}
+.talk{
+  background: rgb(101, 101, 247);
+  color: #fff;
+  text-decoration: none;
+  border:2px solid transparent;
+  font-weight: bold;
+  padding: 13px 30px;
+  border-radius: 30px;
+  transition: .4s;
+}
+.contact{
+    
+  height:100%;
+  width:100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  align-items: center;
+  
+}.contact-img img{
+  max-width: 100%;
+  width: 720px;
+  height: auto;
+  border-radius: 10px;
+}
+.contact-form h1{
+  font-size: 80px;
+  color:rgb(97, 235, 97);
+  margin-bottom: 20px;
+}
+.contact-form p{
+  color:grey;
+  letter-spacing: 1px;
+  line-height: 26px;
+  font-size: 1.1rem;
+  margin-bottom: 3.8rem;
+}
+.contact-form form{
+  position: relative;
+}
+.contact-form form input,form textarea{
+  width: 90%;
+  padding: 17px;
+  border: none;
+  outline:none;
+  background: #6273df78;
+  color:white;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+  border-radius: 10px;
+}
+
+.contact-form textarea{
+  resize: none;
+  height: 200px;
+  }
+.contact-form form .con{
+  display: inline-block;
+  background: #7028f7;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 2px solid transparent;
+  width: 220px;
+  color:#fff;
+}
+.footer{
+    
+  width:100%;
+  padding:100px 15%;
+  background: #333;
+  color:#efefef;
+  display: flex;
+}
+.footer div{
+  text-align: center;
+}
+.footer div h3{
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  
+}
+.col a{
+  display: block;
+  text-decoration: none;
+  color:#efefef;
+  margin-bottom: 10px;
+}
+
+.col-1 a{
+  display: block;
+  text-decoration: none;
+  color:#efefef;
+  margin-bottom: 10px;
+  margin-left: 200px;
+}
+.col-1 h3{
+  margin-left: 200px;
+}
+.col-2 p{
+  display: block;
+  text-decoration: none;
+  color:#efefef;
+  margin-bottom: 10px;
+  margin-left: 200px;
+}
+.col-2 h3{
+  margin-left: 200px;
+}

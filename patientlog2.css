@@ -1,0 +1,93 @@
+@charset "ISO-8859-1";
+body {
+    font-family: sans-serif;
+    background-color:rgb(4, 140, 4);
+    background-image: url(/images/book2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  
+  h1 {
+    text-align: center;
+    
+    font-weight: 300;
+  }
+  
+  
+  .kotak_login {
+    width: 350px;
+    background: rgba(24, 243, 170, 0.82);
+    border-radius: 10px;
+    color:rgba(69, 11, 241, 0.975);
+    margin: 10px auto;
+    margin-left:60px;
+    padding: 30px 20px;
+  }
+  
+  label {
+    font-size: 11pt;
+  }
+  
+  .form_login {
+    
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    font-size: 11pt;
+    margin-bottom: 20px;
+  }
+  
+  .tombol_login {
+    background: rgba(69, 11, 241, 0.975);
+    color: white;
+    font-size: 11pt;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+  }
+    a{
+   float: none;
+       text-decoration: none;
+    display: block;
+    text-align: right;
+     color:#51e65a;
+     
+  }
+   #container1{
+            display: none;
+            background-color:#fff ;
+            margin:0;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate();
+            width: 300px;
+            height: 110px;
+            padding-top: 50px;
+            border-top: 2px solid green;
+            box-shadow: 5px 10px 18px rgb(62, 62, 62);
+          }
+          #msg{
+            font-size: medium;
+            font-weight: 500;
+            font-family: Arial, Helvetica, sans-serif;
+            vertical-align: middle;
+            text-align: center;
+            color: rgb(62, 62, 62);
+          }
+          #ok{
+            color:darkgreen;
+            display: block;
+            width: 80px;
+            height: 30px;
+            margin: 50px auto;
+            border:none;
+            background-color: lightgreen;
+          }
+          #ok:hover{
+            color:lightgreen;
+            background-color: green;
+            cursor:pointer;
+          }

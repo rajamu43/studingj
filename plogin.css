@@ -1,0 +1,54 @@
+@charset "ISO-8859-1";
+body{
+
+    background-color: rgb(85, 97, 247);
+    background-image: url(istockphoto-1165046681-170667a.jpg);
+    font-family: 'arial';
+}
+.login{
+    width: 320px;
+    overflow: hidden;  
+    margin: auto;  
+    margin: 20 0 0 450px;  
+    padding: 50px; 
+    background: #6b78dc;
+    border-radius: 10px;
+}
+h2{
+    text-align:center;
+    color: blueviolet;
+    padding: 20px;
+}
+label{
+    color:aqua;
+    font-size: 17px;
+}
+#name{
+    width: 300px;
+    height: 30px;
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+
+}
+#pwd{
+    width: 300px;
+    height: 30px;
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: blue;  
+  
+  
+} 
+p{
+    color:white;
+    font-size: 15px;
+}
