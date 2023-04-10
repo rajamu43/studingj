@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/table2.css">
+</head>
+<body>
+
+	<div class="container">
+		<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+		
+		</div>
+				<table>
+				<caption><!-- doctor detail--></caption>
+					<thead>
+						<tr>
+
+							
+							<th>regcode</th>
+							<th>doctorname</th>
+							<th>gender</th>
+							<th>age</th>
+							<th>address</th>
+							<th>mailid</th>
+							<th>mobileNo</th>
+							<th>specialization</th>
+							<th>action</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr th:each="user : ${docprofile}">
+							<td th:text="${user.getDoctorId()}"></td>
+							<td th:text="${user.getDoctorName()}"></td>
+							<td th:text="${user.getDoctorGender()}"></td>
+							<td th:text="${user.getDoctorAge()}"></td>
+							<td th:text="${user.getDoctorAddress()}"></td>
+							<td th:text="${user.getDoctorMail()}"></td>
+							<td th:text="${user.getMobileNo()}"></td>
+		                    <td th:text="${user.getSpecialization()}"></td>
+						   <td><a th:href="@{/opendocupdate}">update</button></td>
+						</tr>
+
+					</tbody>
+				</table>
+				</form>
+</body>
+</html>

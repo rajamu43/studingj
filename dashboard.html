@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <title>
+
+    </title>
+<link rel="stylesheet" href="/css/dashcss.css">
+<style>
+.container-pop{
+    
+    background-color:#fff;
+    margin:0;
+    position:absolute;
+    top:20%;
+    left:30%;
+    width: 300px;
+    height: 250px;
+    padding-top: 50px;
+    
+    box-shadow: 5px 10px 18px rgb(62, 62, 62);
+    
+  }
+</style>
+    </head>
+    <body>
+        <div class="slidebar">
+            <div class="slidebarbrand">
+                <h2><span class="super"></span>Superclinic Health care</h2>
+            </div>
+            <div class="slidebarmenu">
+                <ul>
+                    <li>
+                        <a href="/jsp/Patientdashboard.jsp" class="active"><span class="dash"></span>
+                            <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/patient}"><span class="AddProfile"></span>
+                            <span>AddProfiles</span></a>
+                    </li>
+                     <li>
+                        <form th:action="@{/profilepatient}" method="get" th:object="${patients}">
+              
+                        <button type="submit"  name="patientId" id="sid" th:attr="value = ${session.regno}" class="pre">My profile</button>
+                        
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                 <li>
+                        <form action="/doctorlist" method="get">
+                        <input type="submit" value="Book Appointment" class="pre">
+                        </form>
+                       <span class="listdoctor"></span>
+                           
+                    </li>    
+                     <li>
+                        <form action="/billlist" method="get" th:object="${bill}">
+
+                        <button type="submit" name="patientsId" id="sid" th:attr="value = ${session.regno}" class="pre">Bill list</button>
+                        </form>
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                 <li>
+                        <form action="/myappointment" method="get" th:object="${app}">
+            
+                        <button type="submit"  name="patientId" id="sid" th:attr="value = ${session.regno}" class="pre">Appointment Status</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                       <li>
+                        <form action="/patienthistory" method="get" th:object="${phis}">
+            
+                        <button type="submit"  name="patientId" id="sid" th:attr="value = ${session.regno}" class="pre">My History</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                    <li>
+                     <form action="/mybill" method="get" th:object="${pbill}">
+      
+                        <button type="submit"  name="patientsId" id="sid" th:attr="value = ${session.regno}" class="pre">My Bill</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                    <li>
+                    <form th:action="@{/logedout}" method="get">
+                       <span><input type="submit" value="Log out" class="pre"></span></span> 
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="maincontent">
+            <header>
+                <h3>
+                    <label for="">
+                        <span class="bars"></span>
+                    </label>
+                    Dashboard
+                </h3>
+               <div class="searchwrapper">
+                    <span class="search"></span>
+                    <form action="/searchApp" method="post" th:object="${ano}">
+                      <input type="search" placeholder="Appointment requestNo" name="doctorId" id="sid">
+               
+                    </form>
+                </div>   
+                <div class="userwrapper">
+                    <img src="/images/admin.png" width="40px" height="40px" alt="image">
+                    <div>
+               
+                        <h4 th:text="${session.regno}">H</h4>
+                        
+                        <small th:text="${session.roles}">A</small>
+                    </div>
+                </div>
+            </header>
+                        <main>
+                 <div class="cards">
+                    <div class="card-single">
+                        <div>
+                            <h1 th:text="${appointmentCounts}">a</h1>
+                            <span>Appointments</span>
+                        </div>
+                        <div>
+                            <span class="las la-users"></span>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1>24/7 Emergency</h1>
+                            <span>1800-630-2222</span>
+                        </div>
+                        <div>
+                            <span class="las la-clipboard"></span>
+                            
+                        </div>
+                        
+                    </div>
+                       </div>
+        </div>
+      
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+
+     <div class="container">
+     		<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+    </div>
+ 
+     <table>
+     <caption><!--get doctor history--></caption>
+     <thead>
+       <tr>
+          <th>sno</th>
+          <th>doctorcode</th>
+          <th>checkupdate</th>
+          <th>checkedpatientcode</th>
+          <th>appointmentstatus</th>
+          <th>medicine</th>
+          </tr>
+          </thead>
+          <tbody>
+   
+          <tr th:each="user : ${dhistory}">
+           <td th:text="${user.getRegisterId()}"></td>
+           <td th:text="${user.getDoctorId()}" ></td>
+           <td th:text="${user.getAppointmentTime()}"></td>
+           <td th:text="${user.getPatientId()}"></td>
+           <td th:text="${user.getStatus()}" ></td>
+           <td th:text="${user.getPrecription()}"></td>
+           </tr>
+ 
+          </tbody>
+     </table>
+</body>
+</html>

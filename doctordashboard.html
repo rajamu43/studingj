@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/dashcss.css">
+    </head>
+    <body>
+        <div class="slidebar">
+            <div class="slidebarbrand">
+                <h2><span class="super"></span>Superclinic Health care</h2>
+            </div>
+            <div class="slidebarmenu">
+                <ul>
+                    <li>
+                        <a href="/jsp/Doctordashboard.jsp" class="active"><span class="dash"></span>
+                            <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/doctor}"><span class="AddProfile"></span>
+                            <span>AddProfile</span></a>
+                    </li>
+                 <li>
+                        <form action="/doctorprofile" method="get" th:object="${dpro}">
+
+                        <button type="submit"  name="DoctorId" id="sid" th:attr="value = ${session.regno}" class="pre">My profile</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                     <li>
+                        <form action="/applist" method="get" th:object="${alist}">
+                        <button type="submit"  name="DoctorId" id="sid" th:attr="value = ${session.regno}"  class="pre">Appointment Details</button>
+                        </form>
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                    <li>
+                        <form action="/approvalist" method="get" th:object="${approved}">
+  
+                       <button type="submit"  name="DoctorId" id="sid" th:attr="value = ${session.regno}" class="pre">Apporoval list</button>
+                        </form>
+                       <span class="listdoctor"></span>
+                    </li>
+                       <li>
+                        <form action="/doctorhistory" method="get" th:object="${dhis}">
+             
+                        <button type="submit"  name="DoctorId" id="sid" th:attr="value = ${session.regno}" class="pre">My History</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                   
+                    <li>
+                        <form th:action="@{/logedout}" method="get">
+                       <span><input type="submit" value="Log out" class="pre"></span></span> 
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="maincontent">
+            <header>
+                <h3>
+                    <label for="">
+                        <span class="bars"></span>
+                    </label>
+                    Dashboard
+                </h3>
+          <!--   <div class="searchwrapper">
+                    <span class="search"></span>
+                    <input type="search" placeholder="search here">
+                </div>--> 
+                <div class="userwrapper">
+                    <img th:src="@{/images/admin.png}" width="40px" height="40px" alt="image">
+                    <div>
+                 <!--        <%
+                  HttpSession s1 = request.getSession();
+                  Integer rid1 = (Integer) s1.getAttribute("regno");
+                  String rname1 = (String) s1.getAttribute("roles");
+                   %>-->
+                        <h4 th:text="${session.regno}">R</h4>
+                        <small th:text="${session.roles}">o</small>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="cards">
+                    <div class="card-single">
+                        <div>
+                           <h1 th:text="${patientCount}">P</h1>
+                            <span>Patients</span>
+                        </div>
+                        <div>
+                            <span class="las la-users"></span>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1 th:text="${approvedCount}">A</h1>
+                            <span>Approved Appointments</span>
+                        </div>
+                        <div>
+                            <span class="las la-clipboard"></span>
+                            
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+        </div>
+        </div>
+    </body>
+</html>

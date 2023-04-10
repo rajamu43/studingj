@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/dashcss.css">
+    </head>
+    <body>
+        <div class="slidebar">
+            <div class="slidebarbrand">
+                <h2><span class="super"></span>Superclinic Health care</h2>
+            </div>
+            <div class="slidebarmenu">
+                <ul>
+                    <li>
+                        <a href="/jsp/admindashboard.jsp" class="active"><span class="dash"></span>
+                            <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin}"><span class="AddProfile"></span>
+                            <span>AddProfile</span></a>
+                    </li>
+                    <li>
+                        <a href="/jsp/adminupdateprofile.jsp"><span class="update"></span>
+                            <span>UpdateProfile</span></a>
+                    </li>
+                      <li>
+                        <form action="/precriptionlist" method="get">
+                        <input type="submit" value="Treatment List" class="pre"><span class="AddProfile"></span>
+                        
+                       <span class="listdoctor"></span></form>
+                           
+                    </li>
+                      <li>
+                        <form action="/paymentlist" method="get">
+                        <input type="submit" value="checkup payment" class="pre">
+                        </form>
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                       <li>
+                        <form action="/billcre" method="get">
+                        <input type="submit" value="Billcreation" class="pre">
+                        </form>
+                       <span class="listdoctor"></span>                          
+                    </li>
+                    <li>
+                        <form th:action="@{/logedout}" method="get">
+                       <span><input type="submit" value="Log out" class="pre"></span></span> 
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="maincontent">
+            <header>
+                <h3>
+                    <label for="">
+                        <span class="bars"></span>
+                    </label>
+                    Dashboard
+                </h3>
+                <div class="searchwrapper">
+                    <span class="search"></span>
+                    <form action="/doctorhistory" method="get" th:object="${dhis}">
+                    <input type="search" placeholder="search doctor detail" name="doctorId" id="sid" >
+                    </form>
+                </div>
+                 <div class="searchwrapper">
+                    <span class="search"></span>
+                    <form action="/patienthistory" method="get" th:object="${phis}">
+                    <input type="search" placeholder="search patient detail" name="patientId"  id="sid">
+                    </form>
+                </div>
+                <div class="userwrapper">
+                    <img src="/images/admin.png" width="40px" height="40px" alt="image">
+                    <div>
+  
+                        <h4 th:text="${session.regno}">S</h4>
+                        <small th:text="${session.roles}">t</small>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="cards">
+                    <div class="card-single">
+                        <div>
+                            <h1 th:text="${doctorCount}">D</h1>
+                            <span>Doctors</span>
+                        </div>
+                        <div>
+                            <span class="las la-users"></span>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1 th:text="${patientCount}">P</h1>
+                            <span>Patients</span>
+                        </div>
+                        <div>
+                            <span class="las la-clipboard"></span>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1 th:text="${appointmentCount}">A</h1>
+                            <span>Total Appointments</span>
+                        </div>
+                        <div>
+                            <span class="las la-shopping bag"></span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

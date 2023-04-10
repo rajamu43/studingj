@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>history page of patient</title>
+<link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+
+     <div class="container">
+     		<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+     
+
+          <p th:text="${session.regno}">Patient code</p>
+        <form action="/visitdate" method="get"> 
+        <input type="search" placeholder="From date here" name="appdate" id="appdate">      
+        </form>
+       <!-- <input type="search" placeholder="To date here" name="todate" id="todate">-->
+    </div>
+ 
+     <table>
+     <caption><!-- patient history--></caption>
+      
+     <thead>
+       <tr>
+          
+          <th>visitdate</th>
+          <th>visitdoctorcode</th>
+          <th>doctorname</th>
+          <th>appointmentstatus</th>
+          <th>medicine</th>
+          
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr th:each="user : ${phistory}">
+           
+           <td style="display:none;" th:text="${user.getRegisterId()}"></td>
+           <td th:text="${user.getAppointmentTime()}"></td>
+           <td th:text="${user.getDoctorId()}"></td>
+           <td th:text="${user.getDoctorName()}"></td>
+           <td th:text="${user.getStatus()}"></td>
+           <!-- <td th:text="${user.getPrecription()}"></td>-->
+           <form action="/view" method="post">
+           <td> <button class="btn" type="submit" name="doctorId" id="sno" th:attr="value=${user.getRegisterId()}">view</button></td>
+           </form>
+           </tr>  
+          </tbody>
+     </table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="/css/patientlog2.css">
+        
+    </head>
+    <body>
+<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+
+        
+        <div class="kotak_login">
+         
+          <h1>Booking Appointment</h1>
+        
+          <form name="register"id="loginform" th:action="@{/appointmentadd}" method="post" th:object="${appointment}">
+          <div class="container">
+          
+            <label for="psw-repeat"><strong>Appointment Date</strong></label> 
+            <input class="form_login" type="date"  placeholder="" name="date1" id="date1" th:field="*{date}" required>
+
+            <label for="psw-repeat"><strong>Patient id</strong></label>
+             <!--       <%
+                  HttpSession s2 = request.getSession();
+                  Integer rid2 = (Integer) s2.getAttribute("regno");
+                   %>-->
+            <input class="form_login" type="number" placeholder="1234" name="pid" id="pid" th:field="*{patientId}"required>
+            <label for="psw-repeat"><strong>Patient Name</strong></label>
+           <!--   <%
+                  HttpSession s3 = request.getSession();
+                  String rid3 = (String) s2.getAttribute("regname");
+                   %>-->
+            <input class="form_login" type="text" placeholder="Full Name" name="name" id="name"th:field="*{patientName}" required>
+            <span id="name-error" color:red></span><br>
+            <label for="psw-repeat"><strong>Doctor Id</strong></label>
+            <input class="form_login" type="number" placeholder="ex.123" name="pid1" id="pid1" th:field="*{doctorId}"required >
+            <label for="psw-repeat"><strong>Doctor Name</strong></label>
+            <input class="form_login" type="text" placeholder="Full Name" name="name1" id="name1" th:field="*{doctorName}" required>
+            <label for="psw-repeat"><strong>Disease</strong></label>
+            <input class="form_login" type="text" placeholder="reason" name="disea" id="disea" th:field="*{diseaes}"required>
+            
+     
+              <button type="submit" name="Register" class="tombol_login">Book Appointment</button>
+          </div>
+        </form>
+        
+        </div>
+       <script>
+            var dateInput = document.getElementById("date1");
+            var today = new Date();
+            var minDate = today.toISOString().split('T')[0];
+            dateInput.setAttribute("min", minDate);
+            var oneMonthLater = new Date(today.getFullYear(),
+                    today.getMonth() , today.getDate() + 8);
+            var maxDate = oneMonthLater.toISOString().split('T')[0];
+            dateInput.setAttribute("max", maxDate);
+        </script>
+<script type="text/javascript" src="/jscript/scriptvalidation.js"></script>
+</body>
+</html>

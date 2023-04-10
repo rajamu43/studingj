@@ -1,0 +1,203 @@
+<%@page import="com.hospital.hospitalmanagement.model.Doctor"%>
+<%@page import="java.util.List"%>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/dashcss.css">
+    </head>
+    <body>
+        <div class="slidebar">
+            <div class="slidebarbrand">
+                <h2><span class="super"></span>Superclinic Health care</h2>
+            </div>
+            <div class="slidebarmenu">
+                <ul>
+                    <li>
+                        <a th:href="@{/jsp/Patientaddprofile.jsp}" class="active"><span class="dash"></span>
+                            <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/patient}"><span class="AddProfile"></span>
+                            <span>AddProfiles</span></a>
+                    </li>
+                     <li>
+                        <form th:action="@{/profile}" method="get">
+                         <%
+                  HttpSession s3 = request.getSession();
+                  Integer rid3 = (Integer) s3.getAttribute("regno");
+                   %>
+                        <button type="submit" value="<%=rid3%>" name="sid" id="sid" class="pre">My profile</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                 <li>
+                        <form th:action="/doctorlist" method="get">
+                        <input type="submit" value="Book Appointment" class="pre">
+                        </form>
+                       <span class="listdoctor"></span>
+                           
+                    </li>  
+                     <li>
+                        <form th:action="@{/billlist}" method="get">
+                           <%
+                  HttpSession s7 = request.getSession();
+                  Integer rid7 = (Integer) s7.getAttribute("regno");
+                   %>
+                        <button type="submit" value="<%=rid7%>" name="sid" id="sid" class="pre">Bill list</button>
+                        
+                        </form>
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                 
+                       <li>
+                        <form th:action="@{/patienthistory}" method="get">
+                         <%
+                  HttpSession s2 = request.getSession();
+                  Integer rid2 = (Integer) s2.getAttribute("regno");
+                   %>
+                        <button type="submit" value="<%=rid2%>" name="sid" id="sid" class="pre">My History</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                    <li>
+                     <form th:action="/mybill" method="get">
+                         <%
+                  HttpSession s8 = request.getSession();
+                  Integer rid8 = (Integer) s2.getAttribute("regno");
+                   %>
+                        <button type="submit" value="<%=rid8%>" name="sid" id="sid" class="pre">My Bill</button>
+                        </form>
+                        
+                       <span class="listdoctor"></span>
+                           
+                    </li>
+                    <li>
+                    <form th:action="/logout" method="get">
+                       <span><input type="submit" value="Log out" class="pre"></span></span> 
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="maincontent">
+            <header>
+                <h3>
+                    <label for="">
+                        <span class="bars"></span>
+                    </label>
+                    Dashboard
+                </h3>
+             <!--  <div class="searchwrapper">
+                    <span class="search"></span>
+                    <form action="/patienthistory">
+                      <input type="search" placeholder="search here" name="sid" id="sid">
+                    </form>
+                </div> -->  
+                <div class="userwrapper">
+                    <img th:src="@{/images/admin.png}" width="40px" height="40px" alt="image">
+                    <div>
+                    <%
+                  HttpSession s1 = request.getSession();
+                  Integer rid1 = (Integer) s1.getAttribute("regno");
+                  String rname1 = (String) s1.getAttribute("roles");
+                   %>
+                        <h4><%=rid1%></h4>
+                        <small><%=rname1%></small>
+                    </div>
+                </div>
+            </header>
+                        <main>
+                 <div class="cards">
+                    <div class="card-single">
+                        <div>
+                            <h1>12</h1>
+                            <span>Doctors</span>
+                        </div>
+                        <div>
+                            <span class="las la-users"></span>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1>24/7 Emergency</h1>
+                            <span>1800-630-2222</span>
+                        </div>
+                        <div>
+                            <span class="las la-clipboard"></span>
+                            
+                        </div>
+                        
+                    </div>
+                       </div>
+                  
+               
+                  
+                  <div class="table-view">
+                  <link rel="stylesheet" href="/css/doctorlist.css">
+                  <form th:action="/dspecial" method="post">
+                  <input type="search" placeholder="Search here" name="special" id="special">
+                  </form>
+                        <% 
+    List<Doctor> view=(List<Doctor>)request.getAttribute("doclist");
+  %>
+     <div class="container">
+       
+    </div>
+   
+    <form th:action="/applyappointment" method="post">
+     <table>
+     <caption><!--  applyappointment--></caption>
+     <thead>
+       <tr>
+          <th>check</th>
+          <th>doctorcode</th>
+          <th>doctorname</th>
+          <th>gender</th>
+          <th>mailid</th>
+          <th>specialization</th>
+          <th>action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <%
+            for (Doctor user : view){
+          %>
+          
+            
+          
+          <tr>
+            <td><input type="checkbox"
+								value="<%=user.getRegisterId()%>,<%=user.getDoctorName()%>"
+								name="check"></td>
+          
+           <td><%=user.getRegisterId() %></td>
+           <td><%=user.getDoctorName() %></td>
+           <td><%=user.getDoctorGender() %></td>
+           <td><%=user.getDoctorMail() %></td>
+           <td><%=user.getSpecialization() %></td>
+           <td><button class="btn" type="submit">Book</button></td>
+           </tr>
+           <%
+            }
+           %>
+          </tbody>
+     </table>
+     </form>
+                        
+           </div>     
+        </div>
+      
+    </body>
+</html>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+       <link rel="stylesheet" th:href="@{/css/profileadd.css}">
+    </head>
+    <body>
+       
+        <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+        <div class="kotak_login">
+        
+          <h1>Edit profile</h1>
+        
+          <form name="register"id="loginform"  th:action="@{/pupdate}" method="post" th:object="${patientedit}">
+          <div class="container">
+            <label for="email"><strong>Userid</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="registId" id="pid" th:attr="value = ${session.regno}" readonly="readonly" onkeyup="regidvalidation()">
+            <span id="regid-error" class="r"color:red;></span><br>
+            <label for="psw-repeat" class="ps"><strong>Patient Name</strong></label>
+            <input class="form_login" type="text" placeholder="Full Name" name="patientName" id="name"  required onkeyup="namevalidation()">
+            <span id="name-error" class="n" color:red></span><br>
+             <label for="psw-repeat" class="ps"><strong>Gender</strong></label>
+            <input class="form_login" type="text" placeholder="male or female" name="patientGender" id="gender" required onkeyup="gendervalidation()">
+            <span id="gender-error" class="ge" color:red></span><br>
+            <label for="psw-repeat" class="pp"><strong>Age</strong>
+            <input class="form_login" type="number" placeholder="age...." name="patientAge" id="age" required onkeyup="agevalidation()">
+            <span id="age-error" class="age" color:red></span><br>
+            <label for="psw-repeat" class="pr"><strong>Address</strong></label>
+            <input class="form_login" type="text" placeholder="Address . . ." name="patientAddress" id="address"  required onkeyup="addressvalidation()">
+            <span id="address-error" class="add" color:red></span><br>
+            <label for="psw-repeat" class="re"><strong>Mail</strong></label>
+            <input class="form_login" type="email" placeholder="mail-id..." name="patientMail" id="mail"  required onkeyup="mailvalidation()">
+            <span id="mail-error" class="mai" color:red;></span><br>
+             <label for="psw-repeat" class="pn"><strong>MobileNo</strong></label>
+            <input class="form_login" type="tel" placeholder="mobile No should contain 10 digit only" name="mobileNumber" id="mobileno" required onkeyup="mobileNovalidation()">
+            <span id="mobileno-error" class="mob" color:red;></span><br>
+             <label for="psw-repeat" class="at"><strong>Disease</strong></label>
+            <input class="form_login"  type="text" placeholder="disease.." name="diseaes" id="di"  required>
+              <button type="submit" name="Register" class="tombol_login">Submit</button>
+          </div>
+        </form>
+        
+        </div>
+        <script type="text/javascript" src="/jscript/scriptvalidation.js"></script>
+</body>
+</html>

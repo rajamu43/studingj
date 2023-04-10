@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/table1.css">
+</head>
+<body>
+
+     <div class="container">
+         <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+    </div>
+
+    <form action="/billopen" method="post">
+     <table>
+     <caption><!-- getbill --></caption>
+     <thead>
+       <tr>
+          <th>check</th>
+          <th>billno</th>
+          <th>patientcode</th>
+          <th>appointmentno</th>
+          <th>doctorfees</th>
+          <th>medicinefees</th>
+          <th>payamount</th>
+          <th>paymentstatus</th>
+          <th>action</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr th:each="user : ${billlist}">
+          <td><input type="checkbox"
+								value="<%=user.getBillNo()%>,<%=user.getPatientsId()%>,<%=user.getDoctorFees()%>,<%=user.getMedicineFees() %>,<%=user.getAmount()%>,<%=user.getCatogories() %>"
+								name="checkbox"></td>
+								
+           <td th:text="${user.getBillNo()}"></td>
+           <td th:text="${user.getPatientsId()}"></td>
+           <td th:text="${user.getAppointmentNo()}"></td>
+           <td th:text="${user.getDoctorFees()}"></td>
+           <td th:text="${user.getMedicineFees()}"></td>
+           <td th:text="${user.getAmount()}"></td>
+           <td th:text="${user.getCatogories()}"></td>
+           <td><button class="btn" type="submit">view bill</button></td>
+           </tr>
+
+          </tbody>
+     </table>
+</body>
+</html>

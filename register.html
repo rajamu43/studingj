@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <title>Registerpage</title>
+        <link rel="stylesheet" href="/css/Patientlog1.css">
+    </head>
+    <body>
+    
+      <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+        <div class="kotak_login">
+        
+          <h1>Registration Page</h1>
+        
+          <form th:action="@{/register}" method="get" th:object="${regi}">
+          <div class="container">     
+            <label for="psw-repeat"><strong>Name</strong></label>
+            <input class="form_login" type="text" th:field="*{name}" placeholder="Full Name"  onchange="namevalidation()">
+            <span id="name-error" color:red;></span><br>
+            <label for="psw-repeat"><strong>Password</strong></label>
+            <input class="form_login" type="password" th:field="*{password}" name="pwd" id="pwd"  placeholder="password should contain only characters,numbers" onchange="pwdvalid()">
+            <span id="pwd-error" color:red;></span><br>
+            <label for="psw-repeat"><strong>Role</strong></label>
+            <select class="form_login" name="role" id="role" th:field="*{catogories}">
+					<option value="">Select Option</option>
+					<option value="admin">Admin</option>
+					<option value="doctor">Doctor</option>
+					<option value="patient">Patient</option>
+				</select>
+            <label for="psw-repeat"><strong>Mail</strong></label>
+            <input class="form_login" type="email" placeholder="give mail id" name="mail" id="mail" th:field="*{mail}"  onchange="mailvalidation()">
+            <span id="mail-error"  color="red;"></span><br>
+             <label for="psw-repeat"><strong>Mobile No</strong></label>
+            <input class="form_login" type="tel" placeholder="mobileNumber should contain 10 digits only" name="mobileno" id="mobileno" th:field="*{mobileNo}" onchange="mobileNovalidation()">
+            <span id="mobileno-error" color="red;"></span><br>
+           
+              <button type="submit" name="Register" class="tombol_login">Submit</button>
+              
+          </div>
+        </form>
+        </div>
+      
+ 
+          <script type="text/javascript" src="/jscript/scriptvalidation.js"></script>
+</body>
+</html>

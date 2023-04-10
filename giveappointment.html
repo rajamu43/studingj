@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+        <link rel="stylesheet" href="/css/patientlog2.css">
+    </head>
+    <body>
+       
+        <a href="/jsp/Doctordashboard.jsp">Go Back</a>
+        <div class="kotak_login">
+        
+          <h1>Give Appointment</h1>
+        
+          <form name="register"id="loginform" th:action="@{/appointmentChange}" method="post" th:object="${giveapp}">
+          <div class="container">      
+            <label for="psw-repeat"><strong>Appointment RequestNo</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="requestNo" id="id" th:attr="value=${apprequestNo}" required >
+            <label for="psw-repeat"><strong> Appointment Date</strong></label>
+            <input class="form_login" type="date" placeholder="appointment date" name="appointmentDate" id="date1"required >
+              <button type="submit" name="Register" class="tombol_login">submit</button>
+          </div>
+        </form>
+        
+        </div>
+          <script>
+            var dateInput = document.getElementById("date1");
+            var today = new Date();
+            var minDate = today.toISOString().split('T')[0];
+            dateInput.setAttribute("min", minDate);
+            var oneMonthLater = new Date(today.getFullYear(),
+                    today.getMonth() , today.getDate() + 8);
+            var maxDate = oneMonthLater.toISOString().split('T')[0];
+            dateInput.setAttribute("max", maxDate);
+        </script>
+</body>
+</html>

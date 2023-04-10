@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+
+	<div class="container">
+		<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+		</div>
+				<form action="/giveappoint" method="post">
+				<table>
+				<caption><!--appointment--></caption>
+					<thead>
+						<tr>
+
+							<th>check</th>
+							<th>appointmentreqno</th>
+							<th>appointmentdate</th>
+							<th>patientcode</th>
+							<th>patientname</th>
+							<th>doctorcode</th>
+							<th>doctorname</th>
+							<th>disease</th>
+							<th>action</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+
+						<tr th:each="user : ${docappointment}">
+							<td><input type="checkbox"
+								value="<%=user.getRegistId()%>,<%=user.getDate()%>,<%=user.getDoctorId()%>,<%=user.getPatientId()%>"
+								name="check"></td>
+								
+							<td th:text="${user.getRegistId()}"></td>
+							<td id="appointmentdate" th:text="${user.getDate()}"></td>
+							<td th:text="${user.getPatientId()}"></td>
+							<td th:text="${user.getPatientName()}"></td>
+							<td th:text="${user.getDoctorId()}"></td>
+							<td th:text="${user.getDoctorName()}"></td>
+							<td th:text="${user.getDiseaes()}"></td>
+							<td><button class="btn" type="submit">Confirm</button></td>
+						</tr>
+					
+					</tbody>				
+				</table>
+				</form>
+</body>
+</html>

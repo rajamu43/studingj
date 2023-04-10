@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="/css/patientlog4.css">
+    </head>
+    <body>
+       <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+<button type="button" value="back" onclick="history.go(-2);">Go Home</button>
+        <div class="login">
+        
+          <h1>Bill form</h1>
+        
+          <form name="register"id="loginform"  th:action="@{/bill}" method="post" >
+          <div class="container">      
+            <label for="psw-repeat"><strong>Patient Id</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="patientsId" id="pid" required th:attr="value=${patient}" readonly="readonly">
+            <label><strong> Appointment No</strong></label>
+            <input class="form_login" type="number" placeholder="" name="appointmentNo" id="ano" required th:attr="value=${appointNo}" readonly="readonly">
+            <label for="psw-repeat"><strong>Bill Grade</strong></label>
+            <select class="form_login" name="status" id="primary" onchange="sameAddress()">
+					<option value="">select option</option>
+					<option value="2000">A</option>
+					<option value="4000">B</option>
+					<option value="6000">C</option>
+			</select>            
+            <label for="psw-repeat"><strong>Doctor Fees</strong></label>
+            <input class="form_login" type="number" placeholder="amount in rupees" name="doctorFees" id="df" required readonly="readonly">
+            <span id="fees-error" color:red;></span><br>
+            <label for="psw-repeat"><strong>Medicine Fees</strong></label>
+            <input class="form_login" type="number" placeholder="amount in rupees" name="medicineFees" id="mf"  required>
+    
+              <button type="submit" name="Register" class="sub">submit</button>
+          </div>
+        </form>
+        
+        </div>
+        <script>
+        function sameAddress(){
+           
+         	   var medi=document.getElementById("primary").value;
+         	   for(i=0;i<medi.length;i++){
+                document.getElementById("df").value =medi;
+                
+         	   }
+        }
+        </script>
+</body>
+</html>

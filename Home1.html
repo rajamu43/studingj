@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>
+
+</title>
+    <link rel="stylesheet" href="/css/hospro1.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="container1">
+                <img th:src="@{/images/medilogo.png}" alt="image"style="float:left"width="40"height="50" />
+                <h1>SuperClinic Health care </h1>
+
+                <ul>
+                    <li>Home</li>
+                    <li><a  th:href="@{/about}">About</a></li>
+                    <li><a th:href="@{/contact}">Contact</a></li>
+                    <li><a th:href="@{/blog}">Blog</a></li>
+                    
+                </ul>
+                <ul>
+                    <div class="dropdown">
+                <button class="btn">Sign Up</button>
+                <div class="dropdown-content">
+                    <a  th:href=@{/regis}>Register</a>
+                    <a th:href=@{/patientlogin}>Patient login</a>
+                    <a th:href=@{/doctorlogin}>Doctor login</a>
+                    <a th:href=@{/adminlogin}>Admin login</a>
+                 </div>
+            </div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img th:src="@{/images/hosslide1.jfif}" style="width:100%"  alt="image">
+                <div class="text"></div>
+              </div>
+            
+              <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img th:src="@{/images/hosslide2.jpg}" style="width:100%" alt="image">
+                <div class="text"></div>
+              </div>
+            
+              <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img th:src="@{/images/indexhos.jfif}" style="width:100%" alt="image">
+                <div class="text"></div>
+              </div>
+            
+              <!-- Next and previous buttons -->
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="content">
+                <div>
+                    <h4>We are here you</h4>
+                    <p> SuperClinic is one of the Hospital Management System,<br>
+                        Which can integrate all the process and medicine to an intelligent information<br>
+                        System to derive operational efficiency.</p>
+                </div>
+                <div class="img">
+                    <img th:src="@{/images/doctors.png}" alt="image">
+                </div>
+            </div>
+        </div>
+        <div class="main">
+          <img th:src="@{/images/img-3.png}" alt="image" height="400" width="400">
+          <div class="about-text">
+              <h1>About</h1>
+              <h5>The Highest provide health care</h5>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposedIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed</p>
+              <button type="reset" class="talk" id="talk" onclick="location.href='Home1.html#contact'">let's Talk</button>
+          </div>
+      </div>
+      <div class="contact" >
+        <div class="contact-form" id="contact">
+            <h1>Contact us</h1>
+            <p>Clinic availlable for 24hoursvwith work.Connect with via pone or email.</p>
+            <form action="">
+                <input type="text" placeholder="your name" required>
+                <input type="email" placeholder="email" required>
+                <textarea cols="30" rows="30" placeholder="your message" required></textarea>
+                <input type="submit" value="submit" class="con">
+            </form>
+        </div>
+        <div class="contact-img">
+            <img th:src="@{/images/Contact.jpg}" alt="image">
+        </div>
+    </div>
+    <div class="footer">
+      <div class="col">
+               <h3>Useful links</h3><br>
+               
+                   <a href="">About</a>
+                   <a href="">Service</a>
+                   <a href="">Contact</a>
+                   <a href="">Shop</a>
+                   <a href="">Blog</a>
+               
+           </div>
+           <div class="col-1">
+               <h3>our service</h3><br>
+               
+                   <a href="">Appointment booking</a>
+                   <a href="">Doctors</a>
+                   <a href="">Emergency</a>
+                   <a href="">Ambulance</a>
+                   <a href="">Blog</a>
+               
+           </div>
+           <div class="col-2">
+               <h3>Contact</h3>
+               <p>123,By-pass road<br>Chennai,TamilNadu,IN</p>
+           </div>
+           </div>
+        <script>
+            let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+function contact(){
+	let slides=document.getElementsByClassName("contact");
+	slides.style.display="block";
+}
+        </script>
+    </body>
+
+</html>

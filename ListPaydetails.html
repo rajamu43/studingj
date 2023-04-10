@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor list</title>
+<!-- slick -->
+<link rel="stylesheet"
+	th:href="@{/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css}"
+	type="text/css" />
+	<link rel="stylesheet" th:href="@{/SlickGrid/slick.grid.css}" type="text/css"/>
+<link rel="stylesheet" th:href="@{/SlickGrid/css/smoothness/slickfile.css}"
+	type="text/css" />
+	<link rel="stylesheet" href="examples.css" type="text/css"/>
+	<link rel="stylesheet" href="@{/SlickGrid/controls/slick.columnpicker.css}" type="text/css"/>
+	<style>
+.slick-headerrow-column {
+	background: #87ceeb;
+	text-overflow: clip;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.slick-headerrow-column input {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.slick-cell-checkboxsel{
+    background:#f0f0f0;
+    border-right-color:silver;
+    border-right-style:solid;
+}
+body{
+    background-color: aqua;
+    background-image: url(/images/profile1.jpg);
+    background-size: cover;
+}
+</style>
+<!-- end-->	
+</head>
+<body>
+      <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+   
+   <div style="position: relative; margin-top: 100px;margin-left: 200px">
+		<div style="width: 940px;">
+			<div id="myGrid" style="width: 100%; height: 500px;"></div>
+		</div>			
+	</div>
+	<div th:attr="data-myvar=${billShow}" id="myDiv" ></div>
+	<input type="hidden" id="billView" th:value="${billShow}">
+
+  <script th:src="@{/SlickGrid/lib/firebugx.js}"></script>
+  <script th:src="@{/SlickGrid/lib/jquery-1.7.min.js}"></script>
+  <script th:src="@{/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js}"></script>
+  <script th:src="@{/SlickGrid/lib/jquery.event.drag-2.2.js}"></script>
+
+  <script th:src="@{/SlickGrid/slick.core.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.checkboxselectcolumn.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.autotooltips.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.cellrangedecorator.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.cellrangeselector.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.cellcopymanager.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.cellselectionmodel.js}"></script>
+  <script th:src="@{/SlickGrid/plugins/slick.rowselectionmodel.js}"></script>
+  <script th:src="@{/SlickGrid/controls/slick.columnpicker.js}"></script>
+  <script th:src="@{/SlickGrid/slick.formatters.js}"></script>
+  <script th:src="@{/SlickGrid/slick.editors.js}"></script>
+  <script th:src="@{/SlickGrid/slick.dataview.js}"></script>
+  <script th:src="@{/SlickGrid/controls/slick.pager.js}"></script>
+	<script th:src="@{/SlickGrid/gridfillter.js}"></script>
+  <script th:src="@{/SlickGrid/slick.grid.js}"></script>
+  <script th:src="@{/js/viewpayments.js}"></script>
+   <script th:inline="javascript" type="text/javascript">allPayments();</script>
+  
+  <script>
+      document.getElementById('btn').onclick=function(){
+    	  var markedCheckbox = document.getElementsByName('checkName');
+    	  var inputField= document.getElementById('leaveIdList');
+    	  var value=[];
+    	  for (var checkbox of markedCheckbox) {  
+    		    if (checkbox.checked){
+    		    	
+    		    console.log(value);
+    		    	value.push(checkbox.value); 
+    		    }
+    		  }  
+    		    	inputField.value=value; 
+
+      }
+   </script>
+   
+</body>
+</html>

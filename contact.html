@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="/css/contactcss.css">
+    </head>
+    <body>
+        <div class="contact">
+        <div class="contact-form">
+            <h1>Contact us</h1>
+            <p>Clinic availlable for 24hoursvwith work.Connect with via pone or email.</p>
+            <form action="">
+                <input type="text" placeholder="your name" required>
+                <input type="email" placeholder="email" required>
+                <textarea cols="30" rows="30" placeholder="your message" required></textarea>
+                <input type="submit" value="submit" class="con">
+            </form>
+        </div>
+        <div class="contact-img">
+            <img th:src="@{/images/Contact.jpg}" alt="image">
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+     <link rel="stylesheet" href="/css/patientlog2.css">
+    </head>
+    <body>
+       
+        <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+        <button type="button" value="back" onclick="history.go(-2);">Go Home</button>
+        
+        <div class="kotak_login">
+        
+          <h1>Give Appointment</h1>
+        
+          <form name="register"id="loginform" th:action="@{/appointmentstat}" method="post" th:object="${giveapp}">
+          <div class="container">      
+            <label for="psw-repeat"><strong>Appointment RequestNo</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="requestNo" id="id" th:attr="value=${apprequest}"required >
+            <label for="psw-repeat"><strong> Appointment Date</strong></label>
+            <input class="form_login" type="text" placeholder="" name="appointmentTime" id="date1" th:attr="value=${patientdate}" th:onchange="dateFormatter()"required >
+            <label for="psw-repeat"><strong>Diesease</strong></label>
+            <input class="form_login" type="text" placeholder="123" name="reason" id="pid1" th:attr="value=${reason}" required >
+            <input class="form_login" th:type="hidden" placeholder="123" name="doctorId" id="pid1" th:attr="value=${doctorsId}" required >
+            <label for="psw-repeat"><strong>Patient id</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="patientId" id="pid" required th:attr="value=${patid}">
+            
+             <label for="psw-repeat"><strong>Acceptance</strong></label>
+            <select class="form_login" name="status" id="disea">
+					<option value="">select option</option>
+					<option value="approved">Approved</option>
+					<option value="rejected">Rejected</option>
+					</select>
+           
+              <button type="submit" name="Register" class="tombol_login">submit</button>
+          </div>
+        </form>
+        
+        </div>
+          <!--  <script>
+            var dateInput = document.getElementById("date1");
+            var today = new Date();
+            var minDate = today.toISOString().split('T')[0];
+            dateInput.setAttribute("min", minDate);
+            var oneMonthLater = new Date(today.getFullYear(),
+                    today.getMonth() , today.getDate() + 8);
+            var maxDate = oneMonthLater.toISOString().split('T')[0];
+            dateInput.setAttribute("max", maxDate);
+        </script>-->
+        <script>
+        function dateFormatter() {
+        	  const date = new Date(dateInput);
+        	  var dateInput = document.getElementById("date1").value;
+        	  var getDay = date.toLocaleString("default", { day: "2-digit" });
+        	  var getMonth = date.toLocaleString("default", { month: "2-digit" });
+        	  var getYear = date.toLocaleString("default", { year: "numeric" }); // Set the desired date format
+        	  const formattedDate =  getDay + "-" + getMonth + "-" + getYear;// Format the date as a string
+        	  dateInput.innerHTML=formattedDate.toString();
+        	  return formattedDate; // Return the formatted date string
+        	}
+        </script>
+</body>
+</html>

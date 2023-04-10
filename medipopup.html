@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/popupcss.css">
+</head>
+<body>
+ <div class="container">
+					
+					<div class="popup" id="popup" th:object="${sid}">
+						
+		
+						<p>Medicine</p>
+						<br>
+						 
+						<p th:text="${getMedi}">S</p>
+						
+      <button type="button" value="back" onclick="history.go(-1);">ok</button>
+					</div>
+</body>
+</html>

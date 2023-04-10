@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="/css/status.css">
+</head>
+<body>
+   
+            <!-- class named "container" is assigned to div -->
+            <div class="container">
+              <h1>Appointment Details</h1>
+              <br>
+              Appointment requestno:<p th:text="${reqno}">r</p>
+              Appointment Date:<p th:text="${appdate}">d</p>
+              Doctor ID: <P th:text="${did}">dn</P>
+              Doctor Name:<p th:text="${mydoctor}">dn</p>
+               Diseaes:<p th:text="${sym}">pe</p>
+               Appointment status:<p th:text="${mystatus}">st</p>
+              
+             
+              
+              <button type="submit" value="back" onclick="history.go(-1);">back</button>
+            </div>
+        
+          
+</body>
+</html>
+

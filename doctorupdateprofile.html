@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="/css/profileadd.css">
+    </head>
+    <body>
+               <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+       
+        <div class="kotak_login">
+        
+          <h1>Edit Profile</h1>
+        
+          <form name="register"id="loginform"  th:action="@{/Dupdate}" method="post" th:object="${docup}">
+          <div class="container">
+            <label for="email"><strong>Userid</strong></label>
+      
+            <input class="form_login" type="number" placeholder="1234" name="registerId" id="pid" th:attr="value = ${session.regno}" readonly="readonly" required onkeyup="regidvalidation()">
+             <span id="regid-error" class="regerror" color:red;></span><br>
+            <label for="psw-repeat" class="psw"><strong>Doctor Name</strong></label>
+            <input class="form_login" type="text" placeholder="Full Name" name="doctorName" id="name" required onchange="namevalidation()">
+             <span id="name-error" class="nameerror" color:red></span><br>
+            <label for="psw-repeat" class="p"><strong>Gender</strong></label>
+            <input class="form_login" type="text" placeholder="male or female" name="doctorGender" id="gender" required onchange="gendervalidation()">
+            <span id="gender-error" class="gen"color:red></span><br>
+            <label for="psw-repeat" class="repeat"><strong>Age</strong></label>
+            <input class="form_login" type="number" placeholder="age...." name="doctorAge" id="age" required onchange="agevalidation()">
+            <span id="age-error" class="age"color:red></span><br>
+            <label for="psw-repeat" class="psw"><strong>Address</strong></label>
+            <input class="form_login" type="text" placeholder="street,district" name="doctorAddress" id="address" required onchange="addressvalidation()">
+            <span id="address-error" class="add" color:red></span><br>
+            <label for="psw-repeat" class="s"><strong>Mail</strong></label>
+            <input class="form_login" type="email" placeholder="mail-id..." name="doctorMail" id="mail" required onchange="mailvalidation()">
+            <span id="mail-error" class="mail" color:red;></span><br>
+             <label for="psw-repeat" class="mno"><strong>MobileNo</strong></label>
+            <input class="form_login" type="tel" placeholder="10 digit mobile no" name="mobileNo" id="mobileno" required onchange="mobileNovalidation()">
+            <span id="mobileno-error" class="mobile" color:red;></span><br>
+             <label for="psw-repeat" class="rep"><strong>Specialization</strong></label>
+            <input class="form_login" type="text" placeholder="professional" name="specialization" id="di" required>
+              <button type="submit" name="Register" class="tombol_login">update</button>
+          </div>
+        </form>
+        
+        </div>
+                <script type="text/javascript" src="/jscript/scriptvalidation.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+   <title>hospital bill</title>
+        <link rel="stylesheet" href="/css/billcss.css">
+        <script src="https://raw.githack.com/ekoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="invoice-box" id="invoice-box">
+            <table><!-- bill generated -->
+            <caption><!-- billcredit --></caption>
+            <th></th>
+                <tr class="top">
+                    <td colspan="2">
+                        <table>
+                        <caption><!-- billcredit --></caption>
+                        <th></th>
+                            <tr>
+                                <td>
+                                    <h4>Super clinic Healthcare</h4><br>
+                                       1/23,NorthStreet<br>
+                                    By-passroad,chennai<br>
+                                    Head office:chennai<br>
+                                    phone:7200374444<br>
+                                    e-mail:nrm720@mail.com
+                                </td>
+                                <td>
+                                    Date:<span th:text="${dateBill}"></span><br>
+                                    BillNo:<span th:text="${billno}"></span><br>
+                                    Patientid:<span th:text="${paid}"></span><br>
+                                    Patientname:<span th:text="${patname}"></span><br>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="information">
+                    <td colspan="2">
+                        <table>
+                        <caption><!-- billcredit --></caption>
+                        <th></th>
+                            <tr>
+                             <!--    <td>
+                                    1/23,NorthStreet<br>
+                                    By-passroad,chennai<br>
+                                    Head office:chennai<br>
+                                    phone:7200374444<br>
+                                    e-mail:nrm720@mail.com
+                                </td>--> 
+                             <!--    <td>
+                                    1/23,NorthStreet<br>
+                                    By-passroad,chennai<br>
+                                    e-mail:nrm720@mail.com
+                                </td>--> 
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+            
+                <tr class="heading">
+                    <td>Description</td>
+                    <td>Price</td>
+                </tr>
+                <tr class="item">
+                    <td>Doctor fees</td>
+                    <td><span th:text="${df}"></span></td>
+                </tr>
+                <tr class="item">
+                    <td>Medical fees</td>
+                    <td><span th:text="${mf}"></span></td>
+                </tr>
+                <tr class="item">
+                    <td>Total(include GST(12%price))</td>
+                    <td><span th:text="${tamount}"></span></td>
+                </tr>
+                    <tr class="heading">
+                    <td>
+                        Payment Status
+                    </td>
+                    <td>check</td>
+                </tr>
+                <tr class="details">
+                    <td>Status</td>
+                    <td><span th:text="${pay}"></span></td>
+                </tr>
+            </table>
+            <button onclick="generatepdf()">Download</button>
+            <p>This bill auto generated</p>
+        </div>
+<script>
+n = new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById('date-time').innerHTML = d + "/" + m + "/" + y;
+function generatepdf(){
+	const element=document.getElementById("invoice-box");
+	html2pdf()
+	.from(element)
+	.save();
+}
+
+</script>
+    </body>
+</html>

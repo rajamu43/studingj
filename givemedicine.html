@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+      <link rel="stylesheet" href="/css/patientlog3.css">
+
+    </head>
+    <body>
+      <button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+        <div class="kotak_login">
+           
+          <h1>Prescription Page</h1>
+        
+          <form name="register"id="loginform" action="/precription" method="post">
+          <div class="container">      
+            <label for="psw-repeat"><strong> Appointment No</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="appointmentNo" id="id"  required th:attr="value=${appno}" readonly="readonly">
+            
+            <label for="psw-repeat"><strong> Doctor Id</strong></label>
+            <input class="form_login" type="number" placeholder="123" name="doctorId" id="pid1"  required th:attr="value=${docid}" readonly="readonly">
+            <label for="psw-repeat"><strong> Patient Id</strong></label>
+            <input class="form_login" type="number" placeholder="123" name="patientId" id="paid1"  required th:attr="value=${patid}" readonly="readonly">
+            <label for="psw-repeat"><strong>medicine</strong></label>
+            <input class="form_login" type="text" placeholder="medicine" name="precription" id="primary" required>
+            
+            <input type="checkbox" id="same" name="same" onchange="sameAddress()"/> 
+            <label for="psw-repeat"><strong>Prescriptions</strong></label>
+            <textarea class="form_login" id="name" name="pres" rows="4" cols="20"  required readonly="readonly"></textarea>
+            <label for="psw-repeat"><strong>Qty</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="qty" id="pid" required>
+            
+              <button type="submit" name="Register" class="tombol_login" onclick="show()">submit</button>
+          </div>
+        </form>
+        
+        </div>
+         
+      
+          <div id="container1">
+         
+            <div id="msg">Prescriptions added</div>
+            <button id="ok" onclick="hide()">ok</button>
+        </div>
+        <script>
+       function sameAddress(){
+           if(document.getElementById("same")){
+        	   var medi=document.getElementById("primary").value;
+        	   for(i=0;i<medi.length;i++){
+               document.getElementById("name").value =medi;
+               //document.getElementById("primary").value;
+        	   }
+
+           }
+       }
+       function show(){
+           var alert=document.getElementById("container1");
+           alert.style.display="block";
+       }
+       function hide(){
+           var alert=document.getElementById("container1");
+           alert.style.display="none";
+       }
+    </script> 
+  
+</body>
+</html>

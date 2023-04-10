@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+        <link rel="stylesheet" href="/css/profileadd.css">
+    </head>
+    <body>
+       <button type="button" value="goback" onclick="history.go(-1);">Go Back</button>
+        
+        <div class="kotak_login">
+        
+          <h1>Profile Detail</h1>
+        
+          <form name="register"id="loginform"  th:action="@{/addprofile}" method="post" th:object="${doctorprofile}">
+          <div class="container">
+            <label for="email"><strong>User id</strong></label>
+  
+            <input class="form_login" type="number" placeholder="1234" name="registerId" id="id" th:attr="value = ${session.regno}" readonly="readonly"  required onchange="regidvalidation()">
+            <span id="regid-error" color:red;></span><br>     
+            <label for="psw-repeat"><strong>Doctor Name</strong></label>  
+            <input class="form_login" type="text" placeholder="Full Name" name="doctorName" id="name" th:attr="value=${session.docname}" required readonly="readonly" onchange="namevalidation()">
+            <span id="name-error" color:red></span><br>
+            <label for="psw-repeat"><strong>Gender</strong></label>
+            <input class="form_login" type="text" placeholder="male or female" name="gender" id="gender" th:field="*{doctorGender}" required onchange="gendervalidation()">
+            <span id="gender-error" color:red></span><br>
+            <label for="psw-repeat"><strong>Age</strong></label>
+            <input class="form_login" type="number" placeholder="age...." name="age" id="age" th:field="*{doctorAge}" required onchange="agevalidation()">
+            <span id="age-error" color:red></span><br>
+            <label for="psw-repeat"><strong>Address</strong></label>
+            <input class="form_login" type="text" placeholder="street,district" name="address" id="address" th:field="*{doctorAddress}" required onchange="addressvalidation()">
+            <span id="address-error" color:red></span><br>
+            <label for="psw-repeat"><strong>Mail</strong></label>
+            <input class="form_login" type="email" placeholder="mail-id...." name="doctorMail" id="mail" th:attr="value=${session.dmail}" required onchange="mailvalidation()">
+            <span id="mail-error"  color:red;></span><br>
+             <label for="psw-repeat"><strong>MobileNo</strong></label>
+            <input class="form_login" type="tel" placeholder="10 digit mobile no" name="mobileNo" id="mobileno" th:attr="value=${session.mob}"required onchange="mobileNovalidation()">
+            <span id="mobileno-error" color:red;></span><br>
+             <label for="psw-repeat"><strong>Specialization</strong></label>
+            <input class="form_login" type="text" placeholder="professional" name="di" id="di" th:field="*{specialization}"required>
+            
+              <button type="submit" name="Register" class="tombol_login">Submit</button>
+          </div>
+        </form>
+        </div>
+
+     <script type="text/javascript" src="/jscript/scriptvalidation.js"></script>
+</body>
+</html>

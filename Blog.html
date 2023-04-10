@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Blog page</title>
+      <link rel="stylesheet" href="/css/blogcss.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <h1>Our Blog</h1>
+                    <p>one of the most important functions of hospitals is that they offer multiple healthcare professionals.</p>
+                </div>
+                <div class="content">
+                    <div class="card">
+                        <img th:src="@{/images/blog.jpg}" alt="image">
+                        <h4>About</h4>
+                        <p> hospitals narrow down this search to a great level. Hospitals are also a great source of employment for a large section of society. Apart from the hospital staff, there are maintenance crew, equipment handlers and more</p>
+                    </div>
+                    <div class="card">
+                        <img th:src="@{/images/blog2.jpg}" alt="image">
+                        <h4>Care</h4>
+                        <p>Hospitals are significant as they treat minor and serious diseases, illnesses and disorders of the body function of varying types and severity. Moreover, they also help in promoting health, giving information on the prevention of illnesses and providing curative services.</p>
+                    </div>
+                    <div class="card">
+                        <img th:src="@{/images/blog3.jpg}" alt="image">
+                        <h4>Emergency</h4>
+                        <p> Hospitals provide many services which include short-term hospitalization. Further, it also offers emergency room services and general and speciality surgical services. Moreover, they also offer x-ray and radiology and laboratory services.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</hmtl>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="/css/patientlog2.css">
+        
+    </head>
+    <body>
+<button type="button" value="back" onclick="history.go(-1);">Go Back</button>
+<button type="button" value="back" onclick="history.go(-2);">Go Home</button>
+        
+        <div class="kotak_login">
+         
+          <h1>Booking Appointment</h1>
+        
+          <form name="register"id="loginform" th:action="@{/appointmentadd}" method="post" th:object="${appointment}"onsubmit="validateform()">
+          <div class="container">          
+            <label for="psw-repeat"><strong>Appointment Date</strong></label> 
+            <input class="form_login" type="date"  placeholder="" name="date" id="date1"  required>
+            <label for="psw-repeat"><strong>Patient id</strong></label>
+            <input class="form_login" type="number" placeholder="1234" name="patientId" id="pid" th:attr="value = ${session.regno}"  required>
+            <label for="psw-repeat"><strong>Patient Name</strong></label>      
+            <input class="form_login" type="text" placeholder="Full Name" name="patientName" id="name" th:attr="value = ${session.regname}" required>
+            <span id="name-error" color:red></span><br>
+            <label for="psw-repeat"><strong>specialization</strong></label>
+            <input th:type="text" class="form_login" type="number" placeholder="ex.123" name="special" id="pid1" th:attr="value = ${specialization}" required>           
+            <input th:type="hidden" class="form_login" type="number" placeholder="ex.123" name="doctorId" id="pid1" th:attr="value = ${doctorid}" required>
+            <label for="psw-repeat"><strong>Doctor Name</strong></label>
+            <input class="form_login" type="text" placeholder="Full Name" name="doctorName" id="name1" th:attr="value = ${docname}" required>
+            <label for="psw-repeat"><strong>Disease</strong></label>
+            <input class="form_login" type="text" placeholder="reason" name="diseaes" id="disea" required>
+                 
+              <button type="submit" name="Register" class="tombol_login">Book Appointment</button>
+          </div>
+        </form>
+        
+        </div>
+      <script>
+            var dateInput = document.getElementById("date1");
+            var today = new Date();
+            var minDate = today.toISOString().split('T')[0];
+            dateInput.setAttribute("min", minDate);
+            var oneMonthLater = new Date(today.getFullYear(),
+                    today.getMonth() , today.getDate() + 8);
+            var maxDate = oneMonthLater.toISOString().split('T')[0];
+            dateInput.setAttribute("max", maxDate);
+        </script>
+<script type="text/javascript" src="/jscript/scriptvalidation.js"></script>
+</body>
+</html>

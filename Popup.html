@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Getting Id</title>
+<link rel="stylesheet" href="/css/popupcss.css">
+</head>
+<body>
+ <div class="container">
+					
+					<div class="popup" id="popup" th:object="${regi}">
+						<h2>Thankyou</h2>
+		
+						<p>Register suceesfully</p>
+						<br>
+						 
+						<p th:text="${session.regid}">S</p>
+						<br>
+						<p th:text="${session.regname}">R<p>
+            <button type="submit" id="ok" onclick="history.go(-2);">ok</button>
+        
+					</div>
+</body>
+</html>
